@@ -4,7 +4,6 @@
 #include <list>
 
 long long isMagicNumber(long long );
-		std::list <int> splitNumber(long long);
-
+std::list <int> splitNumber(long long);
 
 #endif

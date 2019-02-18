@@ -2,8 +2,6 @@
 #include <iostream>
 #include <list>
 
-#include "happy_number.hpp"
-
 #define DEC_EXP 10
 
 using namespace std;
@@ -29,11 +27,11 @@ long long isMagicNumber(long long number){
 	square = number * number;
 	cout<<"square: "<< square << endl;
 
-// COMMIT POINT
-	cout<<"first_number: "<< first_number << endl;
+	//cout<<"first_number: "<< first_number << endl;
 
 	long long second_number = square - ( first_number * 10 );
-	return second_number;
+	//return second_number;
+	return 0;//second_number;
 
 	// criterio de paro
 	// la suma de los cuadrados de cada digito suma 1 ? 
@@ -46,9 +44,14 @@ long long isMagicNumber(long long number){
 
 list <int> splitNumber( long long number ){
 
+	if ( number < 0 ){
+		cout<<"negative number ... converting to positive" << endl;
+		number = number * -1;
+	}
+
 	long long divisor = DEC_EXP; // mutplicate divisor por 10 siempre
 
-	list <int> numbers;
+	list<int> numbers;
 
 	if(number < DEC_EXP){
 		numbers.push_back(number);
@@ -57,11 +60,11 @@ list <int> splitNumber( long long number ){
 
 	long long aux = number;
 
-	while( aux < DEC_EXP ){
+	while( aux > divisor ){
 
 		long long result = number / divisor;
 
-		numbers.push_back(result);
+		numbers = splitNumber(result);
 		aux = aux - ( result * divisor ) ;
 
 		if( aux < DEC_EXP ){
@@ -69,4 +72,6 @@ list <int> splitNumber( long long number ){
 			return numbers;
 		}
 	}
+	//cout<<numbers;
+	return numbers;
 }

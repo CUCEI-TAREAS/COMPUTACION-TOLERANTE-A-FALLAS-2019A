@@ -7,12 +7,13 @@
 using namespace std;
 
 int main(){
-	list <int> hola;
+	list<int> hola;
 
-	cout<<isMagicNumber(7);
-	hola = sliptNumber(14);
+	//cout<<isMagicNumber(7)<<endl;
+	hola = splitNumber(-9087654321);
 
-	for (auto it = std::begin(hola); it!=std::end(hola); ++it)
-		cout<<*it << endl;
+	for (std::list<int>::iterator  it = hola.begin(); it!= hola.end(); ++it)
+		cout<< *it << endl;
+
 	exit(EXIT_SUCCESS);
 }
