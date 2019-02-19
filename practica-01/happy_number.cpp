@@ -92,7 +92,7 @@ bool isMagicNumber(long long number, bool print = false){
 	if (print)
 		cout <<"\t THEN:\t\t"<< aux <<endl;
 
-	unsigned char unhappy = UNHAPPY_1_comprobation;
+	unsigned short unhappy = UNHAPPY_1_comprobation;
 
 	while(aux != DEC_EXIT ){
 		//Si n no es feliz la suma de los cuadrados entrará en un bucle (de periodo 8):

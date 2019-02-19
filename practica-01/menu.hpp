@@ -20,7 +20,7 @@ public:
 	~Menu();
 
 	void printMenu(void);
-	void doAction(char);
+	void doAction(short);
 	void mainMenu(void);
 };
 

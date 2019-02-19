@@ -21,7 +21,7 @@ void Menu::printMenu() {
 	cout<< EXIT <<"\t"<< TITLE_EXIT<<endl<<endl;
 }
 
-void Menu::doAction(char option) {
+void Menu::doAction(short option) {
 
 	long long int number = 0;
 
@@ -83,7 +83,7 @@ void Menu::doAction(char option) {
 
 void Menu::mainMenu() {
 
-	char option;
+	short option;
 	do {
 		system(CLEAR);
 		cin.clear();
