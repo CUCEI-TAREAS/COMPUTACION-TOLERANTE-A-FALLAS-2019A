@@ -2,13 +2,13 @@
 #include <cstdio>
 #include <list>
 
-#include "happy_number.hpp"
+#include "menu.hpp"
 
 using namespace std;
 
 int main(){
-	isMagicNumber(7);
-	isMagicNumber(8);
+	Menu mainMenu = Menu();
+	mainMenu.mainMenu();
 
 	exit(EXIT_SUCCESS);
 }

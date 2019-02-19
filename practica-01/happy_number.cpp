@@ -81,7 +81,6 @@ bool isMagicNumber(long long number){
 	cout << aux <<endl;
 
 	unsigned char unhappy = UNHAPPY_1_comprobation;
-	bool ishappy = true;
 
 	while(aux != DEC_EXIT ){
 		//Si n no es feliz la suma de los cuadrados entrará en un bucle (de periodo 8):
@@ -114,7 +113,6 @@ bool isMagicNumber(long long number){
 		}
 		else if ( aux == UNHAPPY_9 and unhappy == UNHAPPY_9_comprobation){
 			// it is unhappy
-			cout<<"unhhapy number";
 			return false;
 		}
 		else {
@@ -123,7 +121,7 @@ bool isMagicNumber(long long number){
 		aux = addSquaredNumbers(splitNumber(aux));
 		cout << aux <<endl;
 	}
-	return ishappy;
+	return true;
 	//cout<<"origin: "<< number << endl;
 	//cout<<"square: "<< square << endl;
 }

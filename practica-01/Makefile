@@ -1,4 +1,7 @@
 all:
-	g++ main.cpp happy_number.cpp -g
+	g++ main.cpp happy_number.cpp menu.cpp
 
-.PHONY: all
+g:
+	g++ main.cpp happy_number.cpp menu.cpp -g
+
+.PHONY: all g
