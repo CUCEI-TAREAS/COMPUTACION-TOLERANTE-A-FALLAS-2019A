@@ -137,3 +137,30 @@ bool isMagicNumber(long long number, bool print = false){
 	}
 	return true;
 }
+
+int estimateTime(long long number){
+
+	// split numbe
+	// how many digits are diff 0 and 1 ?
+	list<int> number_list = splitNumber(number);
+
+	int tpm = addSquaredNumbers(splitNumber(number));
+
+
+	int estimation = 0;
+
+	for ( list<int>::iterator it = number_list.begin(); it != number_list.end(); it++){
+
+		if( *it != 1 and *it != 0){
+			estimation += 80;
+
+		} else {
+			estimation += 42;
+		}
+	}
+
+	if( tpm > 11)
+		estimation += estimation;
+
+	return estimation;
+}

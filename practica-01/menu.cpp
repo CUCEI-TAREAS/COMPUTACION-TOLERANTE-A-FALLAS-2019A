@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <iostream>
+#include <chrono>
 
 #include "menu.hpp"
 #include "happy_number.hpp"
@@ -23,20 +24,35 @@ void Menu::printMenu() {
 void Menu::doAction(char option) {
 
 	long long int number = 0;
+
+	auto start = std::chrono::high_resolution_clock::now();
+	auto elapsed = std::chrono::high_resolution_clock::now() - start;
+	long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
+
 	switch(option) {
 	case CHECK_NUMBER :
 		
 		system(CLEAR);
+		cin.ignore();
 		cin.clear();
 
 		cout<<"TYPE A NUMBER: ";
 		cin>>number;
+
+		cout<<endl<<"ESTIMATE TIME: "<<estimateTime(number)<<endl<<endl;
+
+		start = std::chrono::high_resolution_clock::now();
 
 		if (isMagicNumber(number, true)){
 			cout<<endl<<"HAPPY NUMBER"<<endl;
 		} else {
 			cout<<endl<<"UNHAPPY NUMBER"<<endl;
 		}
+
+		elapsed = std::chrono::high_resolution_clock::now() - start;
+		microseconds = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
+
+		cout<<endl<<"REAL TIME MICROSECONDS: "<<microseconds<<endl;
 
 		cout<<endl<<"PRESS ENTER TO RETURN MAIN MENU"<<endl;
 
