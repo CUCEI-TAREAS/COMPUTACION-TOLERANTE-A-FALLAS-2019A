@@ -16,6 +16,7 @@ void Menu::printMenu() {
 
 	cout<< TITLE_MAIN_MENU<<endl<<endl;
 	cout<< CHECK_NUMBER <<"\t"<< TITLE_CHECK_NUMBER <<endl;
+	cout<< CHECK_100 <<"\t"<< TITLE_CHECK_1000 <<endl;
 	cout<< EXIT <<"\t"<< TITLE_EXIT<<endl<<endl;
 }
 
@@ -31,7 +32,7 @@ void Menu::doAction(char option) {
 		cout<<"TYPE A NUMBER: ";
 		cin>>number;
 
-		if (isMagicNumber(number)){
+		if (isMagicNumber(number, true)){
 			cout<<endl<<"HAPPY NUMBER"<<endl;
 		} else {
 			cout<<endl<<"UNHAPPY NUMBER"<<endl;
@@ -44,6 +45,21 @@ void Menu::doAction(char option) {
 		cin.get();
 
 		break;
+	case CHECK_100 :
+
+		cout<<endl<<TITLE_CHECK_1000<<endl;
+		for( int i = 1; i < 1000 ; i++){
+			if(isMagicNumber(i)){
+				cout<<i<<endl;
+			}
+		}
+
+		cout<<endl<<"PRESS ENTER TO RETURN MAIN MENU"<<endl;
+
+		cin.ignore();
+		cin.clear();
+		cin.get();
+
 	case EXIT :
 		break;
 	}

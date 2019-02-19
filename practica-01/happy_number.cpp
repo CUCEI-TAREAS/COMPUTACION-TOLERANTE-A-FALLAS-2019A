@@ -76,15 +76,21 @@ unsigned long addSquaredNumbers(list<int> number_list){
 	return value;
 }
 
-bool isMagicNumber(long long number){
+bool isMagicNumber(long long number, bool print = false){
+
+	if(number == 0)
+		return false;
 
 	list<int> splitted;
 	unsigned long long aux;
 
-	cout<<"\t ORIGIN:\t\t"<< number << endl;
+	if (print)
+		cout<<"\t ORIGIN:\t\t"<< number << endl;
 
 	aux = addSquaredNumbers(splitNumber(number));
-	cout <<"\t THEN:\t\t"<< aux <<endl;
+
+	if (print)
+		cout <<"\t THEN:\t\t"<< aux <<endl;
 
 	unsigned char unhappy = UNHAPPY_1_comprobation;
 
@@ -125,7 +131,9 @@ bool isMagicNumber(long long number){
 			unhappy = UNHAPPY_1_comprobation;
 		}
 		aux = addSquaredNumbers(splitNumber(aux));
-		cout <<"\t THEN:\t\t"<< aux <<endl;
+
+		if (print)
+			cout <<"\t THEN:\t\t"<< aux <<endl;
 	}
 	return true;
 }

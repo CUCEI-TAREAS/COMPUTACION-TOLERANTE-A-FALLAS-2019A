@@ -3,7 +3,7 @@
 
 #include <list>
 
-bool isMagicNumber(long long );
+bool isMagicNumber(long long, bool=false);
 std::list <int> splitNumber( long long);
 unsigned long addSquaredNumbers(std::list <int>);
 
