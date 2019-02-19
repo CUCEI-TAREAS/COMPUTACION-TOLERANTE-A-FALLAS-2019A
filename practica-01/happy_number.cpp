@@ -38,12 +38,12 @@ list <int> splitNumber( long long number ){
 	list<int> numbers;
 
 	if(number == DEC_EXP){
-		numbers.push_back(1);
-		numbers.push_back(0);
+		numbers.push_front(0);
+		numbers.push_front(1);
 		return numbers;
 	}
 	else if(number < DEC_EXP){
-		numbers.push_back(number);
+		numbers.push_front(number);
 		return numbers;
 	}
 
@@ -51,12 +51,16 @@ list <int> splitNumber( long long number ){
 
 	while( aux > divisor ){
 
-		long long result = number / divisor;
+		long long result = aux / divisor;
 
 		numbers = splitNumber(result);
 		aux = aux - ( result * divisor ) ;
 
-		if( aux < DEC_EXP ){
+		if(aux == 0){
+			numbers.push_back(0);
+			return numbers;
+		}
+		else if( aux < DEC_EXP ){
 			numbers.push_back(aux);
 			return numbers;
 		}
@@ -76,9 +80,11 @@ bool isMagicNumber(long long number){
 
 	list<int> splitted;
 	unsigned long long aux;
-	unsigned long long square = number * number;
-	aux = addSquaredNumbers(splitNumber(square));
-	cout << aux <<endl;
+
+	cout<<"\t ORIGIN:\t\t"<< number << endl;
+
+	aux = addSquaredNumbers(splitNumber(number));
+	cout <<"\t THEN:\t\t"<< aux <<endl;
 
 	unsigned char unhappy = UNHAPPY_1_comprobation;
 
@@ -119,9 +125,7 @@ bool isMagicNumber(long long number){
 			unhappy = UNHAPPY_1_comprobation;
 		}
 		aux = addSquaredNumbers(splitNumber(aux));
-		cout << aux <<endl;
+		cout <<"\t THEN:\t\t"<< aux <<endl;
 	}
 	return true;
-	//cout<<"origin: "<< number << endl;
-	//cout<<"square: "<< square << endl;
 }

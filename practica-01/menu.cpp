@@ -25,10 +25,20 @@ void Menu::doAction(char option) {
 	switch(option) {
 	case CHECK_NUMBER :
 		
+		system(CLEAR);
 		cin.clear();
+
 		cout<<"TYPE A NUMBER: ";
 		cin>>number;
-		isMagicNumber(number);
+
+		if (isMagicNumber(number)){
+			cout<<endl<<"HAPPY NUMBER"<<endl;
+		} else {
+			cout<<endl<<"UNHAPPY NUMBER"<<endl;
+		}
+
+		cout<<endl<<"PRESS ENTER TO RETURN MAIN MENU"<<endl;
+
 		cin.ignore();
 		cin.clear();
 		cin.get();
