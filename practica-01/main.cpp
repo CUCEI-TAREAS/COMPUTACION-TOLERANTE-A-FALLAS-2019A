@@ -7,14 +7,8 @@
 using namespace std;
 
 int main(){
-	list<int> hola;
-
-	cout<<isMagicNumber(7)<<endl;
-	//cout<<isMagicNumber(998)<<endl;
-	//hola = splitNumber(998);
-
-	for (std::list<int>::iterator  it = hola.begin(); it!= hola.end(); ++it)
-		cout<< *it << endl;
+	isMagicNumber(7);
+	isMagicNumber(8);
 
 	exit(EXIT_SUCCESS);
 }
