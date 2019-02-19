@@ -1,46 +1,14 @@
-//#include <cmath>
 #include <iostream>
 #include <list>
 
 #define DEC_EXP 10
+#define DEC_EXIT 1
 
 using namespace std;
 /*
-7 es un número feliz, ya que:
-    72 = 49
-    42 + 92 = 97
-    92 + 72 = 130
-    12 + 32 + 02 = 10
-    12 + 02 = 1.
-
 Si n no es feliz la suma de los cuadrados entrará en un bucle (de periodo 8):
     4, 16, 37, 58, 89, 145, 42, 20, 4,...
 */
-
-long long isMagicNumber(long long number){
-
-	long long square;
-	long long first_number = square / 10;
-
-	cout<<"origin: "<< number << endl;
-
-	square = number * number;
-	cout<<"square: "<< square << endl;
-
-	//cout<<"first_number: "<< first_number << endl;
-
-	long long second_number = square - ( first_number * 10 );
-	//return second_number;
-	return 0;//second_number;
-
-	// criterio de paro
-	// la suma de los cuadrados de cada digito suma 1 ? 
-
-		// si > TERMINAR NUMERO FELIZ
-
-		// no > NO ES UN NUMERO FELIZ 
-}
-
 
 list <int> splitNumber( long long number ){
 
@@ -53,12 +21,18 @@ list <int> splitNumber( long long number ){
 
 	list<int> numbers;
 
-	if(number < DEC_EXP){
+	if(number == DEC_EXP){
+		numbers.push_back(1);
+		numbers.push_back(0);
+		return numbers;
+	}
+	else if(number < DEC_EXP){
 		numbers.push_back(number);
 		return numbers;
 	}
 
 	long long aux = number;
+	
 
 	while( aux > divisor ){
 
@@ -74,4 +48,31 @@ list <int> splitNumber( long long number ){
 	}
 	//cout<<numbers;
 	return numbers;
+}
+
+unsigned long addSquaredNumbers(list<int> number_list){
+	unsigned long value = 0;
+	for ( list<int>::iterator it = number_list.begin(); it != number_list.end(); it++){
+		value += (*it) * (*it);
+	}
+	return value;
+}
+
+bool isMagicNumber(long long number){
+
+	list<int> splitted;
+	unsigned long long aux;
+	unsigned long long square = number * number;
+	aux = addSquaredNumbers(splitNumber(square));
+	cout << aux <<endl;
+
+	while(aux != DEC_EXIT ){
+	
+		aux = addSquaredNumbers(splitNumber(aux));
+		cout << aux <<endl;
+	
+	}
+
+	//cout<<"origin: "<< number << endl;
+	//cout<<"square: "<< square << endl;
 }

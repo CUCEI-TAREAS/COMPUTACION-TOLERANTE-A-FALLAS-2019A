@@ -9,8 +9,9 @@ using namespace std;
 int main(){
 	list<int> hola;
 
-	//cout<<isMagicNumber(7)<<endl;
-	hola = splitNumber(-9087654321);
+	cout<<isMagicNumber(7)<<endl;
+	//cout<<isMagicNumber(998)<<endl;
+	//hola = splitNumber(998);
 
 	for (std::list<int>::iterator  it = hola.begin(); it!= hola.end(); ++it)
 		cout<< *it << endl;
