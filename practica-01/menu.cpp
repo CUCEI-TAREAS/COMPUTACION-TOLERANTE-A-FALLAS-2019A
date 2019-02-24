@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <limits>
 #include <iostream>
 #include <chrono>
 
@@ -84,6 +85,30 @@ void Menu::doAction(short option) {
 void Menu::mainMenu() {
 
 	short option;
+	while ( !std::cin.eof() ) {
+
+		if( std::cin >> option ) {
+
+			if(option < CHECK_NUMBER or option > EXIT ) {
+				cout<<endl<<"INVALID OPTION"<<endl;
+				cin.get();
+				cin.ignore();
+				cin.clear();
+				continue;
+			}
+
+		} else {
+			std::cin.clear();    // reset the fail state
+			if (std::cin.peek() == '|') {
+				cout<<endl<<"INVALID OPTION"<<endl;
+				continue;
+		} else {
+			cout<<endl<<"INVALID OPTION"<<endl;
+		}
+		// skip all characters in the stream up to the end of the current line.
+		std::cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+		}
+	}
 	do {
 		system(CLEAR);
 		cin.clear();

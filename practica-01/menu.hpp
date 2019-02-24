@@ -9,9 +9,9 @@
 #define TITLE_CHECK_1000     "CHECK HAPPY NUMBERS FROM 1 UNTIL 1000"
 #define TITLE_EXIT          "EXIT"
 
-#define CHECK_NUMBER '1'
-#define CHECK_100 '2'
-#define EXIT '3'
+#define CHECK_NUMBER 1
+#define CHECK_100 2
+#define EXIT 3
 
 class Menu {
 
