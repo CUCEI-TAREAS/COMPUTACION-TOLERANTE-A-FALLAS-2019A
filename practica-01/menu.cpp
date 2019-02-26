@@ -84,45 +84,36 @@ void Menu::doAction(short option) {
 
 void Menu::mainMenu() {
 
+	system(CLEAR);
 	short option;
-	while ( !std::cin.eof() ) {
+	while ( option != 3 ) {
+	//while ( option != 3 !std::cin.eof() or option != 3) {
+
+		printMenu();
+
+		cout<< "CHOOSE A OPTION: ";
 
 		if( std::cin >> option ) {
 
 			if(option < CHECK_NUMBER or option > EXIT ) {
 				cout<<endl<<"INVALID OPTION"<<endl;
-				cin.get();
-				cin.ignore();
-				cin.clear();
 				continue;
 			}
+
+			doAction(option);
 
 		} else {
 			std::cin.clear();    // reset the fail state
 			if (std::cin.peek() == '|') {
 				cout<<endl<<"INVALID OPTION"<<endl;
-				continue;
-		} else {
-			cout<<endl<<"INVALID OPTION"<<endl;
+			} else {
+				cout<<endl<<"INVALID OPTION"<<endl;
 		}
 		// skip all characters in the stream up to the end of the current line.
 		std::cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+		system(CLEAR);
 		}
 	}
-	do {
-		system(CLEAR);
-		cin.clear();
-		printMenu();
-
-		cout<< "CHOOSE A OPTION: ";
-		cin>>option;
-
-		if(option < CHECK_NUMBER or option > EXIT ) {
-			cout<<option<<"INVALID OPTION"<<endl;
-			cin.ignore();
-			cin.clear();
-			cin.get();
-		}
-		doAction(option);
-	} while(option != EXIT);
 }
+
+
