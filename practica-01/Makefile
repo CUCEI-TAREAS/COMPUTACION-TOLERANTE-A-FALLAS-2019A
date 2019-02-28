@@ -1,7 +1,7 @@
 all:
-	g++ main.cpp happy_number.cpp menu.cpp
+	g++ -fpermissive -std=c++11 main.cpp happy_number.cpp menu.cpp universal_number.cpp
 
 g:
-	g++ main.cpp happy_number.cpp menu.cpp -g
+	g++ -fpermissive -std=c++11 main.cpp happy_number.cpp menu.cpp universal_number.cpp -g
 
 .PHONY: all g
