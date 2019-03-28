@@ -34,27 +34,18 @@ void Menu::doAction(short option) {
 	auto elapsed = std::chrono::high_resolution_clock::now() - start;
 	long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
 
+	list<int> values ;
+
 	switch(option) {
 	case CHECK_NUMBER :
 		
 		system(CLEAR);
-		cin.ignore();
-		cin.clear();
-
 		cout<<"TYPE A NUMBER: ";
-		cin>>number;
-
-		/*
-		for (;;) {
-			int key = next_input();
-			if (key != -1) {
-				if ((key == 113) || (key == 81)) {
-				printf("\nNormal exit\n");
-				break;
-				}
-			}
-		}
-		*/
+		cout<<std::flush;
+		
+		//values = next_input_square();
+		//values = next_input();
+		values = next_input();
 
 		cout<<endl<<"ESTIMATE TIME: "<<estimateTime(number)<<endl<<endl;
 
@@ -106,18 +97,16 @@ void Menu::mainMenu() {
 		system(CLEAR);
 		printMenu();
 
-		int key;
-		short x = 0;
-			list<int> values = next_input();
+		list<int> values = next_input();
 
-			if ( values.size() > 1)
-				continue;
+		if ( values.size() > 1)
+			continue;
 
-			option = values.front();
+		option = values.front();
 
-			if ( option != EXIT) {
-				doAction(option); 
-			}
+		if ( option != EXIT) {
+			doAction(option); 
+		}
 /*
 			cout<<key;
 			if (key != -1) {
