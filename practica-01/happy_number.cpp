@@ -83,6 +83,7 @@ bool isMagicNumberDirectly(list<int> values, bool print = false){
 
 	cout<<endl<<endl<<"EL TOTAL DE CARACTERES INGRESADOS ES: " <<values.size();
 
+
 	if (values.size() == 0){
 		return false;
 	}
@@ -99,6 +100,8 @@ bool isMagicNumberDirectly(list<int> values, bool print = false){
 		return false;
 	
 	}
+
+	cout<<endl<<endl<<"LA ESTIMACION EN MICROSEGUNDOS PARA EL NUMERO ES "<< values.size() * .72<<endl;
 
 	if (print)
 		cout <<"\t THEN:\t\t"<< aux <<endl;
