@@ -81,7 +81,7 @@ void Menu::doAction(short option) {
 	case CHECK_100 :
 
 		cout<<endl<<TITLE_CHECK_1000<<endl;
-		for( int i = 1; i < 1000 ; i++){
+		for( int i = 1; i < 53024287 ; i++){
 			if(isMagicNumber(i)){
 				cout<<i<<endl;
 			}
