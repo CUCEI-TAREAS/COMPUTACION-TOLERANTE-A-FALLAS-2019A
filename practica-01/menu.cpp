@@ -24,6 +24,7 @@ void Menu::printMenu() {
 
 	// wrong placed
 	cout<<endl<< "CHOOSE A OPTION: "<<endl;
+	cout<<flush;
 }
 
 void Menu::doAction(short option) {
@@ -70,9 +71,10 @@ void Menu::doAction(short option) {
 		cout<<endl<<"REAL TIME MICROSECONDS: "<<microseconds<<endl;
 
 		cout<<endl<<"PRESS ENTER TO RETURN MAIN MENU"<<endl;
+		cout << std::flush;
 
-		cin.ignore();
-		cin.clear();
+		//cin.ignore();
+		//cin.clear();
 		cin.get();
 
 		break;
@@ -86,9 +88,10 @@ void Menu::doAction(short option) {
 		}
 
 		cout<<endl<<"PRESS ENTER TO RETURN MAIN MENU"<<endl;
+		cout << std::flush;
 
-		cin.ignore();
-		cin.clear();
+		//cin.ignore();
+		//cin.clear();
 		cin.get();
 
 	case EXIT :

@@ -81,6 +81,12 @@ bool isMagicNumberDirectly(list<int> values, bool print = false){
 	list<int> splitted;
 	unsigned long long aux;
 
+	cout<<endl<<endl<<"EL TOTAL DE CARACTERES INGRESADOS ES: " <<values.size();
+
+	if (values.size() == 0){
+		return false;
+	}
+
 	/*
 	if (print)
 		cout<<"\t ORIGIN:\t\t"<< number << endl;
@@ -88,6 +94,11 @@ bool isMagicNumberDirectly(list<int> values, bool print = false){
 
 	aux = addSquaredNumbers(values);
 	//aux = addSquaredNumbers(splitNumber(number));
+	
+	if ( aux == 0 ){
+		return false;
+	
+	}
 
 	if (print)
 		cout <<"\t THEN:\t\t"<< aux <<endl;
