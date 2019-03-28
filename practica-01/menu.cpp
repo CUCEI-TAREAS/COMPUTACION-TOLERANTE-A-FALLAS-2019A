@@ -5,6 +5,7 @@
 
 #include "menu.hpp"
 #include "happy_number.hpp"
+#include "prevent-close.hpp"
 
 using namespace std;
 
@@ -20,6 +21,9 @@ void Menu::printMenu() {
 	cout<< CHECK_NUMBER <<"\t"<< TITLE_CHECK_NUMBER <<endl;
 	cout<< CHECK_100 <<"\t"<< TITLE_CHECK_1000 <<endl;
 	cout<< EXIT <<"\t"<< TITLE_EXIT<<endl<<endl;
+
+	// wrong placed
+	cout<<endl<< "CHOOSE A OPTION: "<<endl;
 }
 
 void Menu::doAction(short option) {
@@ -39,6 +43,18 @@ void Menu::doAction(short option) {
 
 		cout<<"TYPE A NUMBER: ";
 		cin>>number;
+
+		/*
+		for (;;) {
+			int key = next_input();
+			if (key != -1) {
+				if ((key == 113) || (key == 81)) {
+				printf("\nNormal exit\n");
+				break;
+				}
+			}
+		}
+		*/
 
 		cout<<endl<<"ESTIMATE TIME: "<<estimateTime(number)<<endl<<endl;
 
@@ -84,15 +100,40 @@ void Menu::doAction(short option) {
 
 void Menu::mainMenu() {
 
-	system(CLEAR);
 	short option;
-	while ( option != 3 ) {
-	//while ( option != 3 !std::cin.eof() or option != 3) {
+	while ( option != EXIT ) {
 
+		system(CLEAR);
 		printMenu();
 
-		cout<< "CHOOSE A OPTION: ";
+		int key;
+		short x = 0;
+			list<int> values = next_input();
 
+			if ( values.size() > 1)
+				continue;
+
+			option = values.front();
+
+			if ( option != EXIT) {
+				doAction(option); 
+			}
+/*
+			cout<<key;
+			if (key != -1) {
+				if ((key == ENTER_KEY )) {
+					break;
+				}
+				option = key - 48;
+				++x;
+				//temporal[x++] = option;
+				//
+		}
+*/
+	}
+}
+
+		/*
 		if( std::cin >> option ) {
 
 			if(option < CHECK_NUMBER or option > EXIT ) {
@@ -101,19 +142,20 @@ void Menu::mainMenu() {
 			}
 
 			doAction(option);
+			continue;
 
 		} else {
 			std::cin.clear();    // reset the fail state
 			if (std::cin.peek() == '|') {
-				cout<<endl<<"INVALID OPTION"<<endl;
+				//cout<<endl<<"INVALID OPTION"<<endl;
 			} else {
-				cout<<endl<<"INVALID OPTION"<<endl;
+				//cout<<endl<<"INVALID OPTION"<<endl;
 		}
 		// skip all characters in the stream up to the end of the current line.
 		std::cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
-		system(CLEAR);
-		}
+
 	}
-}
+		 if (std::cin.eof()) break;
 
 
+*/
