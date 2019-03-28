@@ -68,15 +68,77 @@ list <int> splitNumber( long long number ){
 	return numbers;
 }
 
-unsigned long addSquaredNumbers(list<int> number_list){
-	unsigned long value = 0;
+unsigned long long addSquaredNumbers(list<int> number_list){
+	unsigned long long value = 0;
 	for ( list<int>::iterator it = number_list.begin(); it != number_list.end(); it++){
 		value += (*it) * (*it);
 	}
 	return value;
 }
 
-bool isMagicNumber(long long number, bool print = false){
+bool isMagicNumberDirectly(list<int> values, bool print = false){
+
+	list<int> splitted;
+	unsigned long long aux;
+
+	/*
+	if (print)
+		cout<<"\t ORIGIN:\t\t"<< number << endl;
+*/
+
+	aux = addSquaredNumbers(values);
+	//aux = addSquaredNumbers(splitNumber(number));
+
+	if (print)
+		cout <<"\t THEN:\t\t"<< aux <<endl;
+
+	unsigned short unhappy = UNHAPPY_1_comprobation;
+
+	while(aux != DEC_EXIT ){
+		//Si n no es feliz la suma de los cuadrados entrará en un bucle (de periodo 8):
+		// 4, 16, 37, 58, 89, 145, 42, 20, 4,...
+	
+		if ( aux == UNHAPPY_1 and unhappy == UNHAPPY_1_comprobation){
+			// like unhappy number
+			unhappy++;
+		}
+		else if ( aux == UNHAPPY_2 and unhappy == UNHAPPY_2_comprobation){
+			unhappy++;
+		}
+		else if ( aux == UNHAPPY_3 and unhappy == UNHAPPY_3_comprobation){
+			unhappy++;
+		}
+		else if ( aux == UNHAPPY_4 and unhappy == UNHAPPY_4_comprobation){
+			unhappy++;
+		}
+		else if ( aux == UNHAPPY_5 and unhappy == UNHAPPY_5_comprobation){
+			unhappy++;
+		}
+		else if ( aux == UNHAPPY_6 and unhappy == UNHAPPY_6_comprobation){
+			unhappy++;
+		}
+		else if ( aux == UNHAPPY_7 and unhappy == UNHAPPY_7_comprobation){
+			unhappy++;
+		}
+		else if ( aux == UNHAPPY_8 and unhappy == UNHAPPY_8_comprobation){
+			unhappy++;
+		}
+		else if ( aux == UNHAPPY_9 and unhappy == UNHAPPY_9_comprobation){
+			// it is unhappy
+			return false;
+		}
+		else {
+			unhappy = UNHAPPY_1_comprobation;
+		}
+		aux = addSquaredNumbers(splitNumber(aux));
+
+		if (print)
+			cout <<"\t THEN:\t\t"<< aux <<endl;
+	}
+	return true;
+}
+
+bool isMagicNumber(unsigned long long number, bool print = false){
 
 	if(number == 0)
 		return false;

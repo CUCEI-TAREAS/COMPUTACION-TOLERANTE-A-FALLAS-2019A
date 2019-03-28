@@ -28,7 +28,7 @@ void Menu::printMenu() {
 
 void Menu::doAction(short option) {
 
-	long long int number = 0;
+	 long long number = 0;
 
 	auto start = std::chrono::high_resolution_clock::now();
 	auto elapsed = std::chrono::high_resolution_clock::now() - start;
@@ -43,15 +43,22 @@ void Menu::doAction(short option) {
 		cout<<"TYPE A NUMBER: ";
 		cout<<std::flush;
 		
+		// not ready
 		//values = next_input_square();
-		//values = next_input();
+		
 		values = next_input();
+		//isMagicNumberDirectly(values, true);
+		//
 
-		cout<<endl<<"ESTIMATE TIME: "<<estimateTime(number)<<endl<<endl;
+		/*
+		cin>>tmp;
+		*/
+		//cout<<endl<<"ESTIMATE TIME: "<<estimateTime(number)<<endl<<endl;
 
 		start = std::chrono::high_resolution_clock::now();
 
-		if (isMagicNumber(number, true)){
+		//if (isMagicNumber(number, true)){
+		if (isMagicNumberDirectly(values, true)){
 			cout<<endl<<"HAPPY NUMBER"<<endl;
 		} else {
 			cout<<endl<<"UNHAPPY NUMBER"<<endl;

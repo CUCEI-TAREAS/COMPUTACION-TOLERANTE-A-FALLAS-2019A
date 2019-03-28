@@ -60,6 +60,7 @@ list<int> next_input(void) {
 
 	while(1){
 
+		cout<< std::flush;
 		if (!pending_input())
 			continue;
 
@@ -80,6 +81,37 @@ list<int> next_input(void) {
 	}
 }
 
+/** Return next input or -1 if none */
+unsigned long long next_input_square(void) {
+
+	list<int> values;
+	unsigned long long val;
+
+	while(1){
+
+		if (!pending_input())
+			continue;
+
+		int rtn = fgetc(stdin);
+		if ( rtn != ENTER_KEY ){
+			
+			if ( rtn >= N0_KEY and rtn <= N9_KEY ){
+				int value = rtn -= N0_KEY;
+				cout<<value;
+				cout<< std::flush;
+				values.push_front(value);
+			}
+
+		} else {
+			for ( list<int>::iterator it = values.begin(); it != values.end(); it++){
+				val += *it;		
+			}
+
+			return val;
+		}
+
+	}
+}
 /*
 	if ( rtn == 13 ) {
 		printf("\nenter\n");

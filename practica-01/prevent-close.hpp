@@ -16,12 +16,12 @@ int pending_input(void);
 void setup_terminal(void);
 void main_terminal(void);
 
-
 /** Shutdown terminal mode */
 void reset_terminal(void);
 
 /** Return next input or -1 if none */
 std::list<int> next_input(void);
+unsigned long long next_input_square(void);
 
 /*
 int main()

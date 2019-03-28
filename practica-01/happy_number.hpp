@@ -3,9 +3,10 @@
 
 #include <list>
 
-bool isMagicNumber(long long, bool=false);
+bool isMagicNumberDirectly(std::list <int>, bool=false);
+bool isMagicNumber(unsigned long long, bool=false);
 std::list <int> splitNumber( long long);
-unsigned long addSquaredNumbers(std::list <int>);
+unsigned long long addSquaredNumbers(std::list <int>);
 int estimateTime(long long);
 
 #endif
